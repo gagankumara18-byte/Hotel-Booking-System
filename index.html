@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking with Logo</title>
+    <link rel="stylesheet" href="i.css">
+</head>
+
+<body>
+    <header>
+        <img src="images/img1.webp" alt="EasyStay Logo">
+        <div>
+            <h1>Welcome to EasyStay</h1>
+            <p>Your perfect hotel booking platform</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#hotels">Hotels</a>
+        <a href="#feedback">Feedback</a>
+        <a href="#contact">Contact</a>
+        <button id="theme-toggle" aria-label="Toggle Dark Mode">
+            <span id="theme-icon">🌞</span>
+        </button>
+    </nav>
+
+    <script>
+        const toggleBtn = document.getElementById("theme-toggle");
+        const themeIcon = document.getElementById("theme-icon");
+
+        toggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            const isDark = document.body.classList.contains("dark-mode");
+            themeIcon.textContent = isDark ? "🌙" : "🌞";
+
+            // Save preference
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+
+        // Load saved theme
+        window.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme === "dark") {
+                document.body.classList.add("dark-mode");
+                themeIcon.textContent = "🌙";
+            }
+        });
+    </script>
+
+
+
+    <div class="container">
+        <section id="home">
+            <input type="text" id="searchBar" placeholder="Search for hotels..." />
+            <h2>Welcome to EasyStay</h2>
+            <p>Plan your stay at the best hotels with ease and comfort. Explore luxurious accommodations, affordable
+                stays, and exceptional service through our platform.</p>
+        </section>
+
+
+
+        <section id="hotels">
+            <div class="hotel-card">
+                <a href="/images/img2.jpg"><img src="/images/img2.jpg" alt="Hotel Image"></a>
+                <div class="hotel-details">
+                    <h2>Luxury Suites</h2>
+                    <p>Located in the heart of the city, Luxury Suites offers comfortable rooms with top-notch
+                        facilities.</p>
+                    <a href="booking.html?hotel=Luxury Suites%20Suites"><button class="book-btn">Book Now</button></a>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <a href="/images/img3.jpg"><img src="/images/img3.jpg" alt="Hotel Image"></a>
+                <div class="hotel-details">
+                    <h2>Cozy Inn</h2>
+                    <p>Enjoy a cozy stay with affordable prices and great hospitality at Cozy Inn.</p>
+                    <a href="booking.html?hotel=Cozy Inn%20Suites"><button class="book-btn">Book Now</button></a>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <a href="/images/img4.jpg"><img src="/images/img4.jpg" alt="Hotel Image"></a>
+                <div class="hotel-details">
+                    <h2>Ocean Breeze Resort</h2>
+                    <p>Relax by the beach at Ocean Breeze Resort, with spectacular views and premium amenities.</p>
+                    <a href="booking.html?hotel=Ocean Breeze Resort%20Suites"><button class="book-btn">Book
+                            Now</button></a>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <a href="/images/img5.jpg"><img src="/images/img5.jpg" alt="Hotel Image"></a>
+                <div class="hotel-details">
+                    <h2>Mountain Escape</h2>
+                    <p>Escape to the mountains for a peaceful stay at Mountain Escape, surrounded by nature.</p>
+                    <a href="booking.html?hotel=Mountain Escape%20Suites"><button class="book-btn">Book Now</button></a>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <a href="/images/img6.jpg"><img src="/images/img6.jpg" alt="Hotel Image"></a>
+                <div class="hotel-details">
+                    <h2>City View Hotel</h2>
+                    <p>Stay in the heart of the city with stunning views and modern conveniences at City View Hotel.</p>
+                    <a href="booking.html?hotel=City View Hotel%20Suites"><button class="book-btn">Book Now</button></a>
+                </div>
+            </div>
+            <div class="hotel-card">
+                <a href="images/img7.jpg"><img src="images/img7.jpg" alt="Hotel Image"></a>
+                <div class="hotel-details">
+                    <h2>Country Retreat</h2>
+                    <p>Escape the hustle and bustle with a serene getaway at Country Retreat, with scenic views and
+                        peaceful surroundings.</p>
+                    <a href="booking.html?hotel=Country Retreat%20Suites"><button class="book-btn">Book Now</button></a>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="feedback" class="feedback">
+            <h2>We Value Your Feedback</h2>
+            <form>
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="message">Feedback:</label>
+                <textarea id="message" name="message" rows="5" placeholder="Share your experience..."
+                    required></textarea>
+
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </section>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Booking Confirmed!</h3>
+            <p>Thank you for choosing EasyStay. We’ll contact you shortly.</p>
+        </div>
+    </div>
+
+
+    <footer id="contact">
+        <p>&copy; 2024 EasyStay | All rights reserved</p>
+        <p>Email: <a href="mailto:info@easystay.com">info@easystay.com</a></p>
+    </footer>
+    <script src="hotel.js"></script>
+</body>
+
+</html>
